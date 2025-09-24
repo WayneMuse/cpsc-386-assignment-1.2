@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctukt5f62ngk8"]
+
+[ext_resource type="Script" uid="uid://cqmfrpolddv1s" path="res://Scripts/zombie.gd" id="1_vy0uf"]
+[ext_resource type="Texture2D" uid="uid://byy32wrcbnoiu" path="res://Assets/Zombie.noback.png" id="2_w2xga"]
+[ext_resource type="Texture2D" uid="uid://cx4qm0tqg8pok" path="res://Assets/deadbody.noback.png" id="3_4slyf"]
+[ext_resource type="AudioStream" uid="uid://cj2nbwksy2x3c" path="res://Assets/aDeath.wav" id="4_5ia6i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lnshm"]
+
+[node name="Zombie" type="CharacterBody2D"]
+script = ExtResource("1_vy0uf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(6, 6)
+shape = SubResource("CircleShape2D_lnshm")
+
+[node name="Graphics" type="Node2D" parent="."]
+
+[node name="Zombie" type="Sprite2D" parent="Graphics"]
+position = Vector2(-10, -30)
+rotation = -1.5708
+texture = ExtResource("2_w2xga")
+
+[node name="Dead" type="Sprite2D" parent="Graphics"]
+visible = false
+z_index = -1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_4slyf")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, -100)
+collision_mask = 3
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_5ia6i")
+bus = &"SFX"

@@ -1,0 +1,122 @@
+[gd_scene load_steps=8 format=3 uid="uid://cq78am75tulsy"]
+
+[ext_resource type="Script" uid="uid://bxbyllr0iwxui" path="res://Scripts/player.gd" id="1_x3wgy"]
+[ext_resource type="Texture2D" uid="uid://bvr0p2oig2v3j" path="res://Assets/Shooter3.noback.png" id="2_3smsa"]
+[ext_resource type="Texture2D" uid="uid://cx4qm0tqg8pok" path="res://Assets/deadbody.noback.png" id="3_8erm5"]
+[ext_resource type="AudioStream" uid="uid://cj2nbwksy2x3c" path="res://Assets/aDeath.wav" id="4_f1ek2"]
+[ext_resource type="AudioStream" uid="uid://xs6uhmmbfl43" path="res://Assets/aBullet.wav" id="5_tx1dd"]
+[ext_resource type="Texture2D" uid="uid://bbgvsi2g7qfex" path="res://Assets/Muzzle Flash.png" id="6_gymyn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_x3wgy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(4, 4)
+shape = SubResource("CircleShape2D_onrkg")
+
+[node name="Graphics" type="Node2D" parent="."]
+
+[node name="Shooter" type="Sprite2D" parent="Graphics"]
+rotation = 3.14159
+texture = ExtResource("2_3smsa")
+
+[node name="Dead" type="Sprite2D" parent="Graphics"]
+visible = false
+z_index = -1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_8erm5")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(15, -72)
+target_position = Vector2(0, -1000)
+collision_mask = 3
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_f1ek2")
+bus = &"SFX"
+
+[node name="ShootSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_tx1dd")
+bus = &"SFX"
+
+[node name="Muzzleflash" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(14, -93)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_gymyn")
+
+[node name="Timer" type="Timer" parent="Muzzleflash"]
+wait_time = 0.05
+one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Death Screen" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Death Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.194893, 1.17319e-07, 1.8049e-08, 0.270588)
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Death Screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -298.5
+offset_top = -66.0
+offset_right = 298.5
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Death Screen/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -11.5
+offset_right = 38.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Y O U  D I E D"
+
+[node name="Button" type="Button" parent="CanvasLayer/Death Screen/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -36.0
+offset_top = -31.0
+offset_right = 36.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Restart?
+Press R"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="timeout" from="Muzzleflash/Timer" to="Muzzleflash" method="hide"]
