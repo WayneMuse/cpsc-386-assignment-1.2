@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ch7v41qhtn4tk"]
+[gd_scene load_steps=7 format=3 uid="uid://ch7v41qhtn4tk"]
 
 [ext_resource type="Texture2D" uid="uid://uoa0iooie7ym" path="res://Assets/white square.png" id="1_r150o"]
 [ext_resource type="Script" uid="uid://w7s0ceamlr2" path="res://main.gd" id="1_rgh2o"]
 [ext_resource type="PackedScene" uid="uid://cq78am75tulsy" path="res://Scenes/player.tscn" id="2_idj7w"]
 [ext_resource type="PackedScene" uid="uid://ctukt5f62ngk8" path="res://Scenes/zombie.tscn" id="3_kln2b"]
+[ext_resource type="AudioStream" uid="uid://s3bf5scyfq1u" path="res://Assets/Look Behind You Loop.mp3" id="5_pbw6q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_idj7w"]
 
@@ -168,3 +169,9 @@ position = Vector2(1868, 1407)
 
 [node name="Zombie20" parent="." instance=ExtResource("3_kln2b")]
 position = Vector2(-11, -1462)
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_pbw6q")
+autoplay = true
+bus = &"Music"
+parameters/looping = true

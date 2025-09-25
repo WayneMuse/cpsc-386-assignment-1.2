@@ -10,7 +10,7 @@ var zombie_kills := 0
 @onready var zombie_count_label := $"CanvasLayer2/ZombieCountLevel"
 @onready var ammo_label := $"CanvasLayer2/AmmoLabel"
 @onready var zombie_count := get_tree().get_nodes_in_group("Zombie").size()
-var player_ammo = 10
+var player_ammo = 20
 
 func _ready():
 	update_kill_label()

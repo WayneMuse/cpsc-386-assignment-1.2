@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cq006pl6smu71"]
+[gd_scene load_steps=4 format=3 uid="uid://cq006pl6smu71"]
 
 [ext_resource type="Script" uid="uid://days6drm8o26d" path="res://Scripts/start.gd" id="1_og4jd"]
 [ext_resource type="Texture2D" uid="uid://b3tevue8u0uhb" path="res://Assets/The Dead.jpg" id="2_nt0jr"]
+[ext_resource type="AudioStream" uid="uid://d1weijp5gtx28" path="res://Assets/Reborn - Main Menu.mp3" id="3_y4ycm"]
 
 [node name="StartScreen" type="Control"]
 layout_mode = 3
@@ -74,3 +75,9 @@ z_index = -1
 position = Vector2(576, 325.25)
 scale = Vector2(1.87909, 1.81373)
 texture = ExtResource("2_nt0jr")
+
+[node name="StartScreenMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_y4ycm")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
