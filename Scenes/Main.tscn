@@ -113,13 +113,13 @@ shape = SubResource("RectangleShape2D_idj7w")
 position = Vector2(-103, -508)
 
 [node name="Zombie2" parent="." instance=ExtResource("3_kln2b")]
-position = Vector2(1090, 725)
+position = Vector2(810, 537)
 
 [node name="Zombie3" parent="." instance=ExtResource("3_kln2b")]
-position = Vector2(-348, 712)
+position = Vector2(-3, 741)
 
 [node name="Zombie4" parent="." instance=ExtResource("3_kln2b")]
-position = Vector2(1149, -508)
+position = Vector2(850, -543)
 
 [node name="Zombie5" parent="." instance=ExtResource("3_kln2b")]
 position = Vector2(-518, 91)
@@ -131,4 +131,7 @@ position = Vector2(934, 164)
 position = Vector2(-766, -483)
 
 [node name="Zombie8" parent="." instance=ExtResource("3_kln2b")]
-position = Vector2(-829, 511)
+position = Vector2(-643, 554)
+
+[node name="Zombie9" parent="." instance=ExtResource("3_kln2b")]
+position = Vector2(311, -614)

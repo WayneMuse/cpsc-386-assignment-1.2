@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var ray_cast_2d = $RayCast2D
-@export var move_speed: float = 100
+@export var move_speed: float = 150
 var player: CharacterBody2D
 var dead := false
 signal died
