@@ -7,7 +7,7 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lnshm"]
 
-[node name="Zombie" type="CharacterBody2D"]
+[node name="Zombie" type="CharacterBody2D" groups=["Zombie"]]
 script = ExtResource("1_vy0uf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

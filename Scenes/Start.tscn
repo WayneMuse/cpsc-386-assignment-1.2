@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cq006pl6smu71"]
+[gd_scene load_steps=3 format=3 uid="uid://cq006pl6smu71"]
 
 [ext_resource type="Script" uid="uid://days6drm8o26d" path="res://start.gd" id="1_og4jd"]
+[ext_resource type="Texture2D" uid="uid://b3tevue8u0uhb" path="res://Assets/The Dead.jpg" id="2_nt0jr"]
 
 [node name="StartScreen" type="Control"]
 layout_mode = 3
@@ -54,3 +55,22 @@ offset_bottom = 115.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Exit"
+
+[node name="Controls" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -74.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Controls"
+
+[node name="Background" type="Sprite2D" parent="Panel"]
+z_index = -1
+position = Vector2(576, 325.25)
+scale = Vector2(1.87909, 1.81373)
+texture = ExtResource("2_nt0jr")

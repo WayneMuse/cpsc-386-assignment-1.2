@@ -123,17 +123,10 @@ position = Vector2(1149, -508)
 position = Vector2(-518, 91)
 
 [node name="Zombie6" parent="." instance=ExtResource("3_kln2b")]
-position = Vector2(1720, 339)
+position = Vector2(934, 164)
 
 [node name="Zombie7" parent="." instance=ExtResource("3_kln2b")]
 position = Vector2(-766, -483)
 
 [node name="Zombie8" parent="." instance=ExtResource("3_kln2b")]
-position = Vector2(2103, 998)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ZombieKillLabel" type="Label" parent="CanvasLayer"]
-offset_right = 112.0
-offset_bottom = 23.0
-text = "Zombies killed: 0"
+position = Vector2(-829, 511)

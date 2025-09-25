@@ -43,6 +43,8 @@ bus = &"SFX"
 stream = ExtResource("5_tx1dd")
 bus = &"SFX"
 
+[node name="EmptySound" type="AudioStreamPlayer" parent="."]
+
 [node name="Muzzleflash" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(14, -93)
@@ -100,7 +102,7 @@ offset_right = 38.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Y O U  D I E D"
+text = "Y O U   L O S E"
 
 [node name="Button" type="Button" parent="CanvasLayer/Death Screen/Panel"]
 layout_mode = 1
@@ -118,5 +120,28 @@ text = "Restart?
 Press R"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="ZombieKillLabel" type="Label" parent="CanvasLayer2"]
+offset_right = 112.0
+offset_bottom = 23.0
+text = "Zombies killed: 0"
+
+[node name="ZombieCountLevel" type="Label" parent="CanvasLayer2"]
+offset_top = 23.0
+offset_right = 114.0
+offset_bottom = 46.0
+text = "Zombie Remaining:"
+
+[node name="AmmoLabel" type="Label" parent="CanvasLayer2"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.0
+offset_right = 30.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Ammo: "
 
 [connection signal="timeout" from="Muzzleflash/Timer" to="Muzzleflash" method="hide"]

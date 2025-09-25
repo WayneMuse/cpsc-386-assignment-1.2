@@ -4,16 +4,20 @@ extends CharacterBody2D
 @export var move_speed: float = 100
 var player: CharacterBody2D
 var dead := false
+signal died
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
+
+	if player:
+		died.connect(player.add_kill)
 
 func _physics_process(delta: float) -> void:
 	if dead:
 		return
 	
 	if not player:
-		return  # safety check in case player doesn't exist
+		return  # safety check 
 	
 	var dir_to_player = global_position.direction_to(player.global_position)
 	velocity = dir_to_player * move_speed
@@ -32,3 +36,13 @@ func kill() -> void:
 	$Graphics/Zombie.hide()
 	$CollisionShape2D.disabled = true
 	z_index = -1
+	remove_from_group("Zombie")
+	die()
+
+func die():
+	emit_signal("died")
+	print("Zombie dies")
+	#create pickable ammo
+	
+	#queue_free()
+	

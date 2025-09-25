@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bpm4xl2o4rf0b"
+path="res://.godot/imported/out of ammo.mp3-6b0701f677dc8dbc2cbde9775fa34bff.mp3str"
+
+[deps]
+
+source_file="res://Assets/out of ammo.mp3"
+dest_files=["res://.godot/imported/out of ammo.mp3-6b0701f677dc8dbc2cbde9775fa34bff.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
