@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cq006pl6smu71"]
 
-[ext_resource type="Script" uid="uid://days6drm8o26d" path="res://start.gd" id="1_og4jd"]
+[ext_resource type="Script" uid="uid://days6drm8o26d" path="res://Scripts/start.gd" id="1_og4jd"]
 [ext_resource type="Texture2D" uid="uid://b3tevue8u0uhb" path="res://Assets/The Dead.jpg" id="2_nt0jr"]
 
 [node name="StartScreen" type="Control"]

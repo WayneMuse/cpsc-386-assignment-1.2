@@ -37,6 +37,10 @@ func kill() -> void:
 	$CollisionShape2D.disabled = true
 	z_index = -1
 	remove_from_group("Zombie")
+	
+	if randi() % 100 < 66:
+		drop_ammo()
+	
 	die()
 
 func die():
@@ -45,4 +49,11 @@ func die():
 	#create pickable ammo
 	
 	#queue_free()
+
+func drop_ammo():
+	var ammo_scene = preload("res://Scenes/ammo_pickup.tscn")
+	var ammo = ammo_scene.instantiate()
+	
+	get_tree().current_scene.add_child(ammo)
+	ammo.global_position = global_position + Vector2(0, -50)
 	

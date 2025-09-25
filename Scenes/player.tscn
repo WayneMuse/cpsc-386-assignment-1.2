@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cq78am75tulsy"]
+[gd_scene load_steps=9 format=3 uid="uid://cq78am75tulsy"]
 
 [ext_resource type="Script" uid="uid://bxbyllr0iwxui" path="res://Scripts/player.gd" id="1_x3wgy"]
 [ext_resource type="Texture2D" uid="uid://bvr0p2oig2v3j" path="res://Assets/Shooter3.noback.png" id="2_3smsa"]
 [ext_resource type="Texture2D" uid="uid://cx4qm0tqg8pok" path="res://Assets/deadbody.noback.png" id="3_8erm5"]
 [ext_resource type="AudioStream" uid="uid://cj2nbwksy2x3c" path="res://Assets/aDeath.wav" id="4_f1ek2"]
 [ext_resource type="AudioStream" uid="uid://xs6uhmmbfl43" path="res://Assets/aBullet.wav" id="5_tx1dd"]
+[ext_resource type="AudioStream" uid="uid://b1htxnubjiu4u" path="res://Assets/empty.mp3" id="6_3smsa"]
 [ext_resource type="Texture2D" uid="uid://bbgvsi2g7qfex" path="res://Assets/Muzzle Flash.png" id="6_gymyn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
@@ -44,6 +45,8 @@ stream = ExtResource("5_tx1dd")
 bus = &"SFX"
 
 [node name="EmptySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_3smsa")
+bus = &"SFX"
 
 [node name="Muzzleflash" type="Sprite2D" parent="."]
 visible = false
@@ -58,7 +61,6 @@ one_shot = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Death Screen" type="Control" parent="CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -104,7 +106,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Y O U   L O S E"
 
-[node name="Button" type="Button" parent="CanvasLayer/Death Screen/Panel"]
+[node name="Restart" type="Button" parent="CanvasLayer/Death Screen/Panel"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -116,8 +118,7 @@ offset_top = -31.0
 offset_right = 36.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Restart?
-Press R"
+text = "Main Menu"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

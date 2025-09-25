@@ -9,11 +9,12 @@ var zombie_kills := 0
 @onready var ammo_label := $"CanvasLayer2/AmmoLabel"
 @onready var zombie_count := get_tree().get_nodes_in_group("Zombie").size()
 var player_ammo = 10
+#@onready var restart_button = $"CanvasLayer/Death Screen/Panel/Restart"
+
 #var zombie_count = get_tree().get_nodes_in_group("Zombie").size() 
 #zombie_count = get_tree().get_nodes_in_group("Zombie").size()
 
 func _ready():
-	
 	update_kill_label()
 	update_zombie_label()
 	update_ammo_label()
@@ -33,9 +34,13 @@ func update_ammo_label():
 	if ammo_label:
 		ammo_label.text = "Current Ammo: %d" % player_ammo
 
+func add_ammo(amount: int):
+	print("ADD AMMO")
+	player_ammo += amount
+	update_ammo_label()
+	
 func update_zombie_label():
 	#number of zombie - zombies killed
-	
 	zombie_count = get_tree().get_nodes_in_group("Zombie").size()
 	if zombie_count_label:
 		zombie_count_label.text = "Zombies remaining: %d" % zombie_count
@@ -50,16 +55,18 @@ func update_kill_label():
 func _process(delta: float):
 	
 	if Input.is_action_just_pressed("exit"):
-		dead= true
+		dead= true #idk how it works it just works
 		get_tree().change_scene_to_file("res://Scenes/Start.tscn")
-		#global_rotation = 0
+
 	if Input.is_action_just_pressed("restart"):
+		dead=true
 		restart()
 	
 	if dead:
+		
 		return
-	else:
-		global_rotation = global_position.direction_to(get_global_mouse_position()).angle() + PI/2.0
+	
+	global_rotation = global_position.direction_to(get_global_mouse_position()).angle() + PI/2.0
 	
 	
 	if Input.is_action_just_pressed("shoot"):
@@ -68,6 +75,8 @@ func _process(delta: float):
 	
 	#check if player won
 		#goto win screen	
+
+
 
 func _physics_process(delta: float) -> void:
 	if dead:
@@ -87,6 +96,7 @@ func kill():
 	$Graphics/Dead.show()
 	$Graphics/Shooter.hide()
 	$"CanvasLayer/Death Screen".show()
+	$"CanvasLayer/Death Screen/Panel/Restart".pressed.connect(restart)
 	z_index = -1
 	
 
@@ -97,7 +107,7 @@ func shoot():
 	if player_ammo == 0:
 		print("OUT OF AMMO")
 		#play gun click noise
-		
+		$EmptySound.play()
 		return
 		
 	$Muzzleflash.show()
@@ -107,4 +117,3 @@ func shoot():
 	ammo_use()
 	if ray_cast_2d.is_colliding() and ray_cast_2d.get_collider().has_method("kill"):
 		ray_cast_2d.get_collider().kill()
-		

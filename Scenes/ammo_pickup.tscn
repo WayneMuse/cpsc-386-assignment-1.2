@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://c35kvb35d4fb"]
+
+[ext_resource type="Script" uid="uid://lpwyqk265qqc" path="res://AmmoPickup.gd" id="1_d3c0c"]
+[ext_resource type="Texture2D" uid="uid://nd11aiop6cb7" path="res://Assets/Ammo.noback.png" id="1_suvf0"]
+[ext_resource type="AudioStream" uid="uid://c3uckywuwu6vn" path="res://Assets/ammo.mp3" id="3_klsdm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d3c0c"]
+radius = 17.0
+height = 100.0
+
+[node name="AmmoPickup" type="Area2D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_d3c0c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_suvf0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_d3c0c")
+
+[node name="AmmoSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_klsdm")
+bus = &"SFX"
