@@ -19,11 +19,13 @@ func _physics_process(delta: float) -> void:
 	if not player:
 		return  # safety check 
 	
+	#rotate and move towards player
 	var dir_to_player = global_position.direction_to(player.global_position)
 	velocity = dir_to_player * move_speed
 	move_and_slide()
 	global_rotation = dir_to_player.angle() + PI / 2.0
 	
+	#if zombie touches player, then player dies
 	if ray_cast_2d.is_colliding() and ray_cast_2d.get_collider() == player:
 		player.kill()
 		
@@ -46,9 +48,7 @@ func kill() -> void:
 func die():
 	emit_signal("died")
 	print("Zombie dies")
-	#create pickable ammo
-	
-	#queue_free()
+
 
 func drop_ammo():
 	var ammo_scene = preload("res://Scenes/ammo_pickup.tscn")
