@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="CPSC 386 Assignment 1.2"
+config/description="The Dead is a Top Down Zombie Shooter Game. You the player must survive the oncoming tide of zombies. Armed with your trusty rifle and a few bullets you must take down all the zombies and survive"
 run/main_scene="uid://cq006pl6smu71"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://dybykc5dblenb"
 
 [global_group]
 

@@ -110,7 +110,7 @@ shape = SubResource("RectangleShape2D_idj7w")
 [node name="Player" parent="." instance=ExtResource("2_idj7w")]
 
 [node name="Zombie" parent="." instance=ExtResource("3_kln2b")]
-position = Vector2(-103, -508)
+position = Vector2(-36, -520)
 
 [node name="Zombie2" parent="." instance=ExtResource("3_kln2b")]
 position = Vector2(810, 537)
@@ -119,7 +119,7 @@ position = Vector2(810, 537)
 position = Vector2(-3, 741)
 
 [node name="Zombie4" parent="." instance=ExtResource("3_kln2b")]
-position = Vector2(850, -543)
+position = Vector2(1595, -621)
 
 [node name="Zombie5" parent="." instance=ExtResource("3_kln2b")]
 position = Vector2(-518, 91)
@@ -134,4 +134,37 @@ position = Vector2(-766, -483)
 position = Vector2(-643, 554)
 
 [node name="Zombie9" parent="." instance=ExtResource("3_kln2b")]
-position = Vector2(311, -614)
+position = Vector2(317, -803)
+
+[node name="Zombie10" parent="." instance=ExtResource("3_kln2b")]
+position = Vector2(-1228, 263)
+
+[node name="Zombie11" parent="." instance=ExtResource("3_kln2b")]
+position = Vector2(-1926, -756)
+
+[node name="Zombie12" parent="." instance=ExtResource("3_kln2b")]
+position = Vector2(-1473, 1151)
+
+[node name="Zombie13" parent="." instance=ExtResource("3_kln2b")]
+position = Vector2(756, 1195)
+
+[node name="Zombie14" parent="." instance=ExtResource("3_kln2b")]
+position = Vector2(917, -1190)
+
+[node name="Zombie15" parent="." instance=ExtResource("3_kln2b")]
+position = Vector2(-856, -1229)
+
+[node name="Zombie16" parent="." instance=ExtResource("3_kln2b")]
+position = Vector2(1724, 361)
+
+[node name="Zombie17" parent="." instance=ExtResource("3_kln2b")]
+position = Vector2(-28, 1674)
+
+[node name="Zombie18" parent="." instance=ExtResource("3_kln2b")]
+position = Vector2(-2285, 345)
+
+[node name="Zombie19" parent="." instance=ExtResource("3_kln2b")]
+position = Vector2(1868, 1407)
+
+[node name="Zombie20" parent="." instance=ExtResource("3_kln2b")]
+position = Vector2(-11, -1462)

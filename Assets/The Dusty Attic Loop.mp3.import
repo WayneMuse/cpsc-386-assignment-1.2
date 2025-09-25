@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://beg4fhx8vpv6"
+path="res://.godot/imported/The Dusty Attic Loop.mp3-ba81539d96034c4e9adc5d37cf238767.mp3str"
+
+[deps]
+
+source_file="res://Assets/The Dusty Attic Loop.mp3"
+dest_files=["res://.godot/imported/The Dusty Attic Loop.mp3-ba81539d96034c4e9adc5d37cf238767.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
