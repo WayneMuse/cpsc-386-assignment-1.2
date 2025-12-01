@@ -12,7 +12,7 @@ func _ready() -> void:
 	if player:
 		died.connect(player.add_kill)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if dead:
 		return
 	

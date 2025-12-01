@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bjbm2hfgucqgg"]
 
-[ext_resource type="Script" uid="uid://vkrelhr7kgkh" path="res://WinScreen.gd" id="1_wjvwt"]
+[ext_resource type="Script" uid="uid://vkrelhr7kgkh" path="res://Scripts/WinScreen.gd" id="1_wjvwt"]
 [ext_resource type="Texture2D" uid="uid://c5oaw8jgri1uc" path="res://Assets/Win Screen.jpg" id="2_bb5rt"]
 [ext_resource type="AudioStream" uid="uid://beg4fhx8vpv6" path="res://Assets/The Dusty Attic Loop.mp3" id="3_ghcec"]
 

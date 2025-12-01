@@ -52,7 +52,7 @@ func update_kill_label():
 
 
 
-func _process(delta: float):
+func _process(_delta: float):
 	
 	if Input.is_action_just_pressed("exit"):
 		dead= true #idk how it works it just works
@@ -69,7 +69,7 @@ func _process(delta: float):
 		shoot()
 	update_zombie_label()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if dead:
 		return
 	
