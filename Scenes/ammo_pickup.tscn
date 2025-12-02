@@ -15,9 +15,11 @@ script = ExtResource("1_d3c0c")
 ammo_amount = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("1_suvf0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.75, 0.75)
 shape = SubResource("CapsuleShape2D_d3c0c")
 
 [node name="AmmoSound" type="AudioStreamPlayer" parent="."]

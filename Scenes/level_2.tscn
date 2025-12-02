@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnwmam4hb13as"]
+
+[ext_resource type="PackedScene" uid="uid://cq78am75tulsy" path="res://Scenes/player.tscn" id="1_smnlx"]
+[ext_resource type="Texture2D" uid="uid://uoa0iooie7ym" path="res://Assets/white square.png" id="2_12fag"]
+[ext_resource type="PackedScene" uid="uid://ctukt5f62ngk8" path="res://Scenes/zombie.tscn" id="3_12fag"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1q6tm"]
+size = Vector2(19.6923, 20)
+
+[node name="Level2" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_smnlx")]
+metadata/_edit_lock_ = true
+
+[node name="Enviroment" type="Node2D" parent="."]
+
+[node name="Floor" type="Sprite2D" parent="Enviroment"]
+modulate = Color(0.359069, 0.359069, 0.359069, 1)
+z_index = -2
+position = Vector2(0, -0.000133514)
+scale = Vector2(100, 5)
+texture = ExtResource("2_12fag")
+
+[node name="Block" type="Sprite2D" parent="Enviroment"]
+modulate = Color(0.174718, 0.17484, 0.323448, 1)
+position = Vector2(0, -288)
+scale = Vector2(9, 0.445313)
+texture = ExtResource("2_12fag")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Enviroment/Block"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/Block/StaticBody2D"]
+scale = Vector2(6.5, 6.5)
+shape = SubResource("RectangleShape2D_1q6tm")
+
+[node name="Block2" type="Sprite2D" parent="Enviroment"]
+modulate = Color(0.174718, 0.17484, 0.323448, 1)
+position = Vector2(8, 288)
+scale = Vector2(9.0625, 0.445313)
+texture = ExtResource("2_12fag")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Enviroment/Block2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/Block2/StaticBody2D"]
+position = Vector2(-0.110345, 0)
+scale = Vector2(6.5, 6.5)
+shape = SubResource("RectangleShape2D_1q6tm")
+
+[node name="Zombies" type="Node" parent="."]
+
+[node name="Zombie" parent="Zombies" instance=ExtResource("3_12fag")]
+position = Vector2(-576, 0)
+
+[node name="Zombie2" parent="Zombies" instance=ExtResource("3_12fag")]
+position = Vector2(576, 8)

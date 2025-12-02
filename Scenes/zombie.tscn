@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctukt5f62ngk8"]
+[gd_scene load_steps=7 format=3 uid="uid://ctukt5f62ngk8"]
 
 [ext_resource type="Script" uid="uid://cqmfrpolddv1s" path="res://Scripts/zombie.gd" id="1_vy0uf"]
 [ext_resource type="Texture2D" uid="uid://byy32wrcbnoiu" path="res://Assets/Zombie.noback.png" id="2_w2xga"]
@@ -6,6 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://cj2nbwksy2x3c" path="res://Assets/aDeath.wav" id="4_5ia6i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lnshm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vy0uf"]
 
 [node name="Zombie" type="CharacterBody2D" groups=["Zombie"]]
 script = ExtResource("1_vy0uf")
@@ -34,3 +36,12 @@ collision_mask = 3
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_5ia6i")
 bus = &"SFX"
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+scale = Vector2(75, 75)
+shape = SubResource("CircleShape2D_vy0uf")
