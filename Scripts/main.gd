@@ -10,6 +10,10 @@ var generated_blocks = []
 const map_limit = 2500
 
 func _ready():
+	# DEBUG: Enable this to SEE the navigation mesh (Light Green Overlay)
+	# This helps confirm that holes are being cut around boxes.
+	#NavigationServer2D.set_debug_enabled(true)
+	
 	# Create Bounds
 	create_bounds()
 	
@@ -69,8 +73,10 @@ func start_next_wave():
 	if wave_n % 5 == 0:
 		update_blocks()
 
-	var smart_count = int(floor(wave_n / 5.0) * 2)
+	#var smart_count = int(floor(wave_n / 5.0) * 2)
 	var total_count = wave_n + 4
+	var smart_count = total_count # DEBUG
+	print("Smart Count: %d" % smart_count)
 	var regular_count = total_count - smart_count
 	if regular_count < 0:
 		regular_count = 0
@@ -80,22 +86,22 @@ func start_next_wave():
 	spawn_zombies(smart_count, true)
 
 func update_blocks():
-	print("Shifting blocks...")
+	print("Updating blocks and rebuilding NavMesh...")
 	for block in generated_blocks:
 		if is_instance_valid(block):
 			block.queue_free()
 	generated_blocks.clear()
 	
 	var num_blocks = randi_range(8, 24)
-	var nav_region = find_child("NavigationRegion2D") # Get reference
 	
 	for i in range(num_blocks):
 		var block = static_block_scene.instantiate()
 		block.global_position = Vector2(randf_range(-2000, 2000), randf_range(-2000, 2000))
-		block.scale = Vector2(randf_range(1.0, 4.0), randf_range(1.0, 4.0))
+		block.scale = Vector2(randf_range(0.25, 8.0), randf_range(0.25, 8.0))
 		add_child(block)
 		generated_blocks.append(block)
 	
+	await get_tree().physics_frame
 	await get_tree().physics_frame
 	build_nav_mesh()
 
@@ -104,15 +110,17 @@ func build_nav_mesh():
 	if not nav_region:
 		print("Error: NavigationRegion2D not found in Main scene!")
 		return
-		
-	# 1. Create a new Navigation Polygon resource
+	
 	var nav_poly = NavigationPolygon.new()
+		
+	# --- CRITICAL SETTINGS ---
+	# 1. Tell Godot to look for COLLISION SHAPES, not Meshes
+	nav_poly.parsed_geometry_type = NavigationPolygon.PARSED_GEOMETRY_STATIC_COLLIDERS
+	nav_poly.parsed_collision_mask = 0xFFFFFFFF
 	
-	# Set settings (Agent Radius ensures zombies don't clip walls)
-	nav_poly.agent_radius = 80.0 
+	# 2. Agent Radius: Slightly larger than Zombie radius (keeps them off walls)
+	nav_poly.agent_radius = 90.0 
 	
-	# 2. Define the "Floor" (The traversable 2500x2500 box)
-	# This tells the system "This is the world, anything else inside here is a hole"
 	var outline = PackedVector2Array([
 		Vector2(-map_limit, -map_limit),
 		Vector2(map_limit, -map_limit),
@@ -121,29 +129,15 @@ func build_nav_mesh():
 	])
 	nav_poly.add_outline(outline)
 	
-	# 3. Create Source Geometry Data
 	var source_geometry = NavigationMeshSourceGeometryData2D.new()
 	
-	# 4. Parse specific nodes (Walls and Blocks)
-	# This scans the Physics CollisionShapes of these nodes and marks them as obstacles
-	
-	# Parse Walls
-	var map_bounds = find_child("MapBounds")
-	if map_bounds:
-		NavigationServer2D.parse_source_geometry_data(nav_poly, source_geometry, map_bounds)
-		
-	# Parse Blocks
-	for block in generated_blocks:
-		if is_instance_valid(block):
-			NavigationServer2D.parse_source_geometry_data(nav_poly, source_geometry, block)
+	# 3. Parse everything
+	NavigationServer2D.parse_source_geometry_data(nav_poly, source_geometry, self)
 
-	# 5. Bake the Polygon
-	# This generates the final navigation mesh based on the outline (Floor) and source geometry (Holes)
+	# 4. Bake Nav mesh
 	NavigationServer2D.bake_from_source_geometry_data(nav_poly, source_geometry)
-	
-	# 6. Apply to Region
 	nav_region.navigation_polygon = nav_poly
-	print("NavMesh baked successfully via NavigationServer2D.")
+	print("NavMesh baked successfully.")
 
 func spawn_zombies(count: int, is_smart: bool):
 	for i in range(count):
@@ -168,4 +162,5 @@ func spawn_zombies(count: int, is_smart: bool):
 
 func end_game():
 	print("WIN")
+	GameManager.current_wave = 0
 	get_tree().change_scene_to_file("res://Scenes/Win Screen.tscn")

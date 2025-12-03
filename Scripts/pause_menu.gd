@@ -43,6 +43,7 @@ func _on_next_wave_pressed() -> void:
 
 func _on_main_menu_pressed():
 	GameManager.resume_game()
+	GameManager.current_wave = 0
 	get_tree().change_scene_to_file("res://Scenes/Levels/main_menu.tscn")
 
 func _on_load_game_pressed():
@@ -65,4 +66,5 @@ func _on_save__game_pressed():
 
 func _on_quit_pressed():
 	GameManager.resume_game()
+	GameManager.current_wave = 0
 	get_tree().quit()

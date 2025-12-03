@@ -189,8 +189,11 @@ func shoot():
 		ray_cast_2d.get_collider().kill()
 
 func exitGame():
+	GameManager.current_wave = 0
 	get_tree().quit()
 func restart():
+	GameManager.current_wave = 0
 	get_tree().reload_current_scene()
 func escapeToStartMenu():
+	GameManager.current_wave = 0
 	get_tree().change_scene_to_file("res://Scenes/Start.tscn")

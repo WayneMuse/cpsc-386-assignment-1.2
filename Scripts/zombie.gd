@@ -90,6 +90,8 @@ func _physics_process(delta: float) -> void:
 
 # --- Callback for Smart Zombies with Avoidance ---
 func _on_nav_velocity_computed(safe_velocity):
+	if dead: return
+	
 	velocity = safe_velocity
 	move_and_slide()
 	# We check for stuck blocks HERE because this is when the movement actually happens
@@ -108,6 +110,7 @@ func _check_stuck(delta):
 func kill() -> void:
 	if dead: return
 	dead = true
+	velocity = Vector2.ZERO
 	$DeathSound.play()
 	$Graphics/Dead.show()
 	$Graphics/Zombie.hide()
