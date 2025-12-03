@@ -73,9 +73,9 @@ func start_next_wave():
 	if wave_n % 5 == 0:
 		update_blocks()
 
-	#var smart_count = int(floor(wave_n / 5.0) * 2)
 	var total_count = wave_n + 4
-	var smart_count = total_count # DEBUG
+	var smart_count = int(floor(wave_n / 5.0) * 2)
+	#var smart_count = total_count # DEBUG
 	print("Smart Count: %d" % smart_count)
 	var regular_count = total_count - smart_count
 	if regular_count < 0:
