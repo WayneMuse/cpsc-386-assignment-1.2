@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://ciw7lgueva0lp"]
+
+[ext_resource type="Script" uid="uid://5uhh3kjwgr26" path="res://Scripts/pause_menu.gd" id="1_woiik"]
+
+[node name="EscMenu" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_woiik")
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+
+[node name="MainMenuButton" type="Button" parent="Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SaveGameButton" type="Button" parent="Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SaveNameInput" type="LineEdit" parent="Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LoadGameButton" type="Button" parent="Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="NextLevelButton" type="Button" parent="Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="QuitGameButton" type="Button" parent="Control/PanelContainer/VBoxContainer"]
+layout_mode = 2

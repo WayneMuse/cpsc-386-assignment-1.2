@@ -1,0 +1,83 @@
+[gd_scene load_steps=5 format=3 uid="uid://rqh0o07sm1pq"]
+
+[ext_resource type="Script" uid="uid://c1wrv2ql8l7k7" path="res://Scenes/load_menu.gd" id="1_1phsf"]
+[ext_resource type="Texture2D" uid="uid://b3tevue8u0uhb" path="res://Assets/The Dead.jpg" id="2_vpo06"]
+[ext_resource type="AudioStream" uid="uid://d1weijp5gtx28" path="res://Assets/Reborn - Main Menu.mp3" id="3_0kb28"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i016o"]
+bg_color = Color(0.129412, 0.129412, 0.129412, 0.564706)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+anti_aliasing_size = 2.0
+
+[node name="LoadMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1phsf")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 650.0
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(576, 325.25)
+scale = Vector2(1.87909, 1.81373)
+texture = ExtResource("2_vpo06")
+
+[node name="PanelBackground" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.0
+offset_top = -32.0
+offset_right = 65.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_i016o")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelBackground"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelBackground/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="SaveListContainer" type="VBoxContainer" parent="PanelBackground/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NoSavesLabel" type="Label" parent="PanelBackground/VBoxContainer"]
+layout_mode = 2
+text = "No Saves Found!"
+
+[node name="BackButton" type="Button" parent="PanelBackground/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[node name="LoadMenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0kb28")
+autoplay = true
+bus = &"Music"
+parameters/looping = true

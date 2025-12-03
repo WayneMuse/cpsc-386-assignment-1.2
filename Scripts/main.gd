@@ -1,6 +1,7 @@
 extends Node2D
 
 var check_interval := 1
+var wave = GameManager.lastLevel
 
 func _ready():
 	var timer = Timer.new()
@@ -13,7 +14,8 @@ func _ready():
 func _on_check_zombies():
 	var zombies = get_tree().get_nodes_in_group("Zombie")
 	if zombies.is_empty():
-		end_game()
+		# wait 5 seconds with countdown, then spawn zombies
+		wave += 1
 
 func end_game():
 	print("WIN")
