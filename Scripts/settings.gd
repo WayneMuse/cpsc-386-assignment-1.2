@@ -44,4 +44,4 @@ func _on_music_slider_changed(value: float) -> void:
 
 func _on_main_pressed():
 	save_settings()
-	get_tree().change_scene_to_file("res://Scenes/Levels/main_menu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Start.tscn")

@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://h1puy5gqt53p"]
+[gd_scene load_steps=4 format=3 uid="uid://h1puy5gqt53p"]
 
 [ext_resource type="Script" uid="uid://g62oh01xbcwh" path="res://Scripts/controls.gd" id="1_8qavf"]
+[ext_resource type="StyleBox" uid="uid://hjxxatualruc" path="res://menu_box_panel_bg.tres" id="2_e8c2f"]
+[ext_resource type="Texture2D" uid="uid://b3tevue8u0uhb" path="res://Assets/The Dead.jpg" id="2_ejwpf"]
 
 [node name="Controls" type="Control"]
 layout_mode = 3
@@ -13,39 +15,55 @@ script = ExtResource("1_8qavf")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_right = 1153.0
-offset_bottom = 649.0
+offset_right = 1150.0
+offset_bottom = 650.0
 
-[node name="Back" type="Button" parent="Panel"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -32.0
-offset_right = 64.0
-offset_bottom = -1.0
-grow_vertical = 0
-text = "<- Back"
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(576, 325.25)
+scale = Vector2(1.87909, 1.81373)
+texture = ExtResource("2_ejwpf")
+metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -0.5
-offset_top = -11.5
-offset_right = 0.5
-offset_bottom = 11.5
+offset_left = -300.0
+offset_top = -250.0
+offset_right = 300.0
+offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Movement:
-WASD
+theme_override_styles/panel = ExtResource("2_e8c2f")
 
-Shooting:
-Right Mouse Button
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
 
-Back to Start Menu:
-ESC"
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "CONTROLS"
 horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ActionList" type="VBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="BackButton" type="Button" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back"

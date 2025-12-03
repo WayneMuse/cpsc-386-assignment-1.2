@@ -3,23 +3,7 @@
 [ext_resource type="Script" uid="uid://c1wrv2ql8l7k7" path="res://Scenes/load_menu.gd" id="1_1phsf"]
 [ext_resource type="Texture2D" uid="uid://b3tevue8u0uhb" path="res://Assets/The Dead.jpg" id="2_vpo06"]
 [ext_resource type="AudioStream" uid="uid://d1weijp5gtx28" path="res://Assets/Reborn - Main Menu.mp3" id="3_0kb28"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i016o"]
-bg_color = Color(0.129412, 0.129412, 0.129412, 0.564706)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_blend = true
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-expand_margin_left = 10.0
-expand_margin_top = 10.0
-expand_margin_right = 10.0
-expand_margin_bottom = 10.0
-anti_aliasing_size = 2.0
+[ext_resource type="StyleBox" uid="uid://hjxxatualruc" path="res://menu_box_panel_bg.tres" id="3_vpo06"]
 
 [node name="LoadMenu" type="Control"]
 layout_mode = 3
@@ -40,6 +24,7 @@ z_index = -1
 position = Vector2(576, 325.25)
 scale = Vector2(1.87909, 1.81373)
 texture = ExtResource("2_vpo06")
+metadata/_edit_lock_ = true
 
 [node name="PanelBackground" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -54,7 +39,7 @@ offset_right = 65.0
 offset_bottom = 34.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_i016o")
+theme_override_styles/panel = ExtResource("3_vpo06")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelBackground"]
 layout_mode = 2

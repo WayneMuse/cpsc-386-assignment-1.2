@@ -1,38 +1,66 @@
-[gd_scene load_steps=2 format=3 uid="uid://ciw7lgueva0lp"]
+[gd_scene load_steps=3 format=3 uid="uid://ciw7lgueva0lp"]
 
 [ext_resource type="Script" uid="uid://5uhh3kjwgr26" path="res://Scripts/pause_menu.gd" id="1_woiik"]
+[ext_resource type="StyleBox" uid="uid://hjxxatualruc" path="res://menu_box_panel_bg.tres" id="2_h0ngc"]
 
 [node name="EscMenu" type="CanvasLayer"]
+process_mode = 3
+visible = false
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_woiik")
 
 [node name="PanelContainer" type="PanelContainer" parent="Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -45.5
+offset_right = 34.0
+offset_bottom = 45.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_h0ngc")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="MainMenuButton" type="Button" parent="Control/PanelContainer/VBoxContainer"]
 layout_mode = 2
+text = "Main Menu"
 
 [node name="SaveGameButton" type="Button" parent="Control/PanelContainer/VBoxContainer"]
 layout_mode = 2
+text = "Save Game"
 
 [node name="SaveNameInput" type="LineEdit" parent="Control/PanelContainer/VBoxContainer"]
 layout_mode = 2
+placeholder_text = "Input Save Name"
 
 [node name="LoadGameButton" type="Button" parent="Control/PanelContainer/VBoxContainer"]
 layout_mode = 2
+text = "Load Game"
 
-[node name="NextLevelButton" type="Button" parent="Control/PanelContainer/VBoxContainer"]
+[node name="NextWaveButton" type="Button" parent="Control/PanelContainer/VBoxContainer"]
 layout_mode = 2
+text = "Next Wave"
 
 [node name="QuitGameButton" type="Button" parent="Control/PanelContainer/VBoxContainer"]
 layout_mode = 2
+text = "Exit Game"

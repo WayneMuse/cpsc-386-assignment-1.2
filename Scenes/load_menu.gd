@@ -1,9 +1,9 @@
 # LoadMenu.gd
 extends Control
 
-@onready var save_list_container = $Background/VBoxContainer/HBoxContainer/SaveListContainer
-@onready var back_button = $Background/VBoxContainer/BackButton
-@onready var no_saves_label = $Background/VBoxContainer/NoSavesLabel
+@onready var save_list_container = $PanelBackground/VBoxContainer/HBoxContainer/SaveListContainer
+@onready var back_button = $PanelBackground/VBoxContainer/BackButton
+@onready var no_saves_label = $PanelBackground/VBoxContainer/NoSavesLabel
 
 func _ready():
 	back_button.pressed.connect(_on_back_pressed)
@@ -25,7 +25,7 @@ func populate_save_list():
 	while file_name != "":
 		# Check if it's a save file (ends in .json)
 		# Exclude settings and the file that tracks the last save
-		if file_name.ends_with(".json") and file_name != "settings.json" and file_name != "last_save.json":
+		if file_name.ends_with(".json") and file_name != "settings.json" and file_name != "last_save.json"and file_name != "controls.json":
 			var save_name = file_name.trim_suffix(".json")
 			var mod_time = FileAccess.get_modified_time("user://" + file_name)
 			save_files.append({"name": save_name, "time": mod_time})
@@ -115,6 +115,6 @@ func _on_save_file_pressed(save_name: String):
 
 func _on_back_pressed():
 	# Always go back to the main menu from here
-	get_tree().change_scene_to_file("res://Scenes/Levels/main_menu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Start.tscn")
 	
 #	Implement return to last level opened (whatever that may be)

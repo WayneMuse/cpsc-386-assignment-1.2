@@ -1,174 +1,28 @@
-[gd_scene load_steps=7 format=3 uid="uid://ch7v41qhtn4tk"]
+[gd_scene load_steps=6 format=3 uid="uid://ch7v41qhtn4tk"]
 
 [ext_resource type="Texture2D" uid="uid://uoa0iooie7ym" path="res://Assets/white square.png" id="1_r150o"]
 [ext_resource type="Script" uid="uid://w7s0ceamlr2" path="res://Scripts/main.gd" id="1_rgh2o"]
 [ext_resource type="PackedScene" uid="uid://cq78am75tulsy" path="res://Scenes/player.tscn" id="2_idj7w"]
-[ext_resource type="PackedScene" uid="uid://ctukt5f62ngk8" path="res://Scenes/zombie.tscn" id="3_kln2b"]
 [ext_resource type="AudioStream" uid="uid://s3bf5scyfq1u" path="res://Assets/Look Behind You Loop.mp3" id="5_pbw6q"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_idj7w"]
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_rgh2o"]
+agent_radius = 40.0
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_rgh2o")
 
-[node name="Enviroment" type="Node2D" parent="."]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_rgh2o")
 
-[node name="Floor" type="Sprite2D" parent="Enviroment"]
+[node name="Enviroment" type="Node2D" parent="NavigationRegion2D"]
+
+[node name="Floor" type="Sprite2D" parent="NavigationRegion2D/Enviroment"]
 modulate = Color(0.359069, 0.359069, 0.359069, 1)
 z_index = -2
 scale = Vector2(100, 100)
 texture = ExtResource("1_r150o")
 
-[node name="Block" type="Sprite2D" parent="Enviroment"]
-modulate = Color(0.174718, 0.17484, 0.323448, 1)
-position = Vector2(401.338, -59.1922)
-texture = ExtResource("1_r150o")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Enviroment/Block"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/Block/StaticBody2D"]
-scale = Vector2(6.5, 6.5)
-shape = SubResource("RectangleShape2D_idj7w")
-
-[node name="Block2" type="Sprite2D" parent="Enviroment"]
-modulate = Color(0.174718, 0.17484, 0.323448, 1)
-position = Vector2(300, 415)
-texture = ExtResource("1_r150o")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Enviroment/Block2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/Block2/StaticBody2D"]
-scale = Vector2(6.5, 6.5)
-shape = SubResource("RectangleShape2D_idj7w")
-
-[node name="Block3" type="Sprite2D" parent="Enviroment"]
-modulate = Color(0.174718, 0.17484, 0.323448, 1)
-position = Vector2(-344.328, 69.6487)
-texture = ExtResource("1_r150o")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Enviroment/Block3"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/Block3/StaticBody2D"]
-scale = Vector2(6.5, 6.5)
-shape = SubResource("RectangleShape2D_idj7w")
-
-[node name="Block4" type="Sprite2D" parent="Enviroment"]
-modulate = Color(0.174718, 0.17484, 0.323448, 1)
-position = Vector2(-282.063, 555.512)
-texture = ExtResource("1_r150o")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Enviroment/Block4"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/Block4/StaticBody2D"]
-scale = Vector2(6.5, 6.5)
-shape = SubResource("RectangleShape2D_idj7w")
-
-[node name="Block5" type="Sprite2D" parent="Enviroment"]
-modulate = Color(0.174718, 0.17484, 0.323448, 1)
-position = Vector2(-99.8574, -331.934)
-texture = ExtResource("1_r150o")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Enviroment/Block5"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/Block5/StaticBody2D"]
-scale = Vector2(6.5, 6.5)
-shape = SubResource("RectangleShape2D_idj7w")
-
-[node name="Block6" type="Sprite2D" parent="Enviroment"]
-modulate = Color(0.174718, 0.17484, 0.323448, 1)
-position = Vector2(948.358, 619.82)
-texture = ExtResource("1_r150o")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Enviroment/Block6"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/Block6/StaticBody2D"]
-scale = Vector2(6.5, 6.5)
-shape = SubResource("RectangleShape2D_idj7w")
-
-[node name="Block7" type="Sprite2D" parent="Enviroment"]
-modulate = Color(0.174718, 0.17484, 0.323448, 1)
-position = Vector2(997.66, -391.954)
-texture = ExtResource("1_r150o")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Enviroment/Block7"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/Block7/StaticBody2D"]
-scale = Vector2(6.5, 6.5)
-shape = SubResource("RectangleShape2D_idj7w")
-
-[node name="Block8" type="Sprite2D" parent="Enviroment"]
-modulate = Color(0.174718, 0.17484, 0.323448, 1)
-position = Vector2(401.338, -59.1922)
-texture = ExtResource("1_r150o")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Enviroment/Block8"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enviroment/Block8/StaticBody2D"]
-position = Vector2(-1503.34, -257.808)
-scale = Vector2(6.5, 6.5)
-shape = SubResource("RectangleShape2D_idj7w")
-
 [node name="Player" parent="." instance=ExtResource("2_idj7w")]
-
-[node name="Zombie" parent="." instance=ExtResource("3_kln2b")]
-position = Vector2(-36, -520)
-
-[node name="Zombie2" parent="." instance=ExtResource("3_kln2b")]
-position = Vector2(810, 537)
-
-[node name="Zombie3" parent="." instance=ExtResource("3_kln2b")]
-position = Vector2(-3, 741)
-
-[node name="Zombie4" parent="." instance=ExtResource("3_kln2b")]
-position = Vector2(1148, -216)
-
-[node name="Zombie5" parent="." instance=ExtResource("3_kln2b")]
-position = Vector2(-518, 91)
-
-[node name="Zombie6" parent="." instance=ExtResource("3_kln2b")]
-position = Vector2(934, 164)
-
-[node name="Zombie7" parent="." instance=ExtResource("3_kln2b")]
-position = Vector2(-766, -483)
-
-[node name="Zombie8" parent="." instance=ExtResource("3_kln2b")]
-position = Vector2(-643, 554)
-
-[node name="Zombie9" parent="." instance=ExtResource("3_kln2b")]
-position = Vector2(317, -803)
-
-[node name="Zombie10" parent="." instance=ExtResource("3_kln2b")]
-position = Vector2(-1228, 263)
-
-[node name="Zombie11" parent="." instance=ExtResource("3_kln2b")]
-position = Vector2(-1337, -188)
-
-[node name="Zombie12" parent="." instance=ExtResource("3_kln2b")]
-position = Vector2(-651, 920)
-
-[node name="Zombie13" parent="." instance=ExtResource("3_kln2b")]
-position = Vector2(373, 957)
-
-[node name="Zombie14" parent="." instance=ExtResource("3_kln2b")]
-position = Vector2(602, -556)
-
-[node name="Zombie15" parent="." instance=ExtResource("3_kln2b")]
-position = Vector2(-480, -763)
-
-[node name="Zombie16" parent="." instance=ExtResource("3_kln2b")]
-position = Vector2(1260, 403)
-
-[node name="Zombie17" parent="." instance=ExtResource("3_kln2b")]
-position = Vector2(-1, 1145)
-
-[node name="Zombie18" parent="." instance=ExtResource("3_kln2b")]
-position = Vector2(-928, -28)
-
-[node name="Zombie19" parent="." instance=ExtResource("3_kln2b")]
-position = Vector2(957, 979)
-
-[node name="Zombie20" parent="." instance=ExtResource("3_kln2b")]
-position = Vector2(-97, -844)
 
 [node name="GameMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_pbw6q")
