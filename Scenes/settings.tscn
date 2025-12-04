@@ -43,7 +43,17 @@ theme_override_styles/panel = ExtResource("2_i44u3")
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+[node name="Master Volume" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="MasterSlider" type="HSlider" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+min_value = -60.0
+max_value = 0.0
+step = 0.5
+
+[node name="SFX Volume" type="Label" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "SFX Volume"
 
