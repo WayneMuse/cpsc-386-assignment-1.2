@@ -5,6 +5,9 @@ extends CharacterBody2D
 @export var sprint_mult = 4
 var dead = false
 
+#animations
+@onready var anim_sprite: AnimatedSprite2D = $Graphics/AnimatedSprite2D
+
 # Display variables
 var zombie_kills := 0
 @onready var zombie_kill_label := $"CanvasLayer2/VBoxContainer/ZombieKillLabel"
@@ -29,7 +32,9 @@ func _ready():
 		var new_cam = Camera2D.new()
 		new_cam.zoom = Vector2(0.4, 0.4)
 		add_child(new_cam)
-
+	
+	anim_sprite.play("Idle") 
+	
 	update_kill_label()
 	update_zombie_label()
 	update_wave_label()
@@ -102,6 +107,16 @@ func _physics_process(_delta: float) -> void:
 	
 	velocity = move_dir * current_speed
 	move_and_slide()
+	_update_animation()
+
+func _update_animation() -> void:
+	# If we're moving, play Walking, otherwise Idle
+	if velocity.length() > 0.0001:
+		#if anim_sprite.animation != "Walking":
+		anim_sprite.play("Walking")
+	else:
+			#if anim_sprite.animation != "Idle":
+		anim_sprite.play("Idle")
 
 func kill():
 	if dead: return
@@ -111,6 +126,7 @@ func kill():
 	$DeathSound.play()
 	$Graphics/Dead.show()
 	$Graphics/Shooter.hide()
+	$Graphics/AnimatedSprite2D.hide()
 	z_index = -1
 	
 	# 2. Prepare the Death Screen for fading

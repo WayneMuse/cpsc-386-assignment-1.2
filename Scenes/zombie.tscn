@@ -1,11 +1,110 @@
-[gd_scene load_steps=7 format=3 uid="uid://ctukt5f62ngk8"]
+[gd_scene load_steps=22 format=3 uid="uid://ctukt5f62ngk8"]
 
 [ext_resource type="Script" uid="uid://cqmfrpolddv1s" path="res://Scripts/zombie.gd" id="1_vy0uf"]
 [ext_resource type="Texture2D" uid="uid://byy32wrcbnoiu" path="res://Assets/Zombie.noback.png" id="2_w2xga"]
 [ext_resource type="Texture2D" uid="uid://cx4qm0tqg8pok" path="res://Assets/deadbody.noback.png" id="3_4slyf"]
+[ext_resource type="Texture2D" uid="uid://bw1vpb2cldyko" path="res://Assets/Spritesheet/zombie-attacking.png" id="4_4slyf"]
 [ext_resource type="AudioStream" uid="uid://cj2nbwksy2x3c" path="res://Assets/aDeath.wav" id="4_5ia6i"]
+[ext_resource type="Texture2D" uid="uid://bkm3vimolvtqk" path="res://Assets/Spritesheet/zombie-walking.png" id="4_w2xga"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lnshm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vaj8p"]
+atlas = ExtResource("4_4slyf")
+region = Rect2(0, 0, 313, 374)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4slyf"]
+atlas = ExtResource("4_w2xga")
+region = Rect2(0, 0, 313, 375)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ia6i"]
+atlas = ExtResource("4_w2xga")
+region = Rect2(313, 0, 313, 375)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xx3wb"]
+atlas = ExtResource("4_w2xga")
+region = Rect2(626, 0, 313, 375)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0wq0"]
+atlas = ExtResource("4_w2xga")
+region = Rect2(939, 0, 313, 375)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hslf5"]
+atlas = ExtResource("4_w2xga")
+region = Rect2(1252, 0, 313, 375)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2tw5"]
+atlas = ExtResource("4_w2xga")
+region = Rect2(1565, 0, 313, 375)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fj6an"]
+atlas = ExtResource("4_w2xga")
+region = Rect2(1878, 0, 313, 375)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmcj1"]
+atlas = ExtResource("4_w2xga")
+region = Rect2(2191, 0, 313, 375)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aw8xw"]
+atlas = ExtResource("4_w2xga")
+region = Rect2(2504, 0, 313, 375)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0eft"]
+atlas = ExtResource("4_w2xga")
+region = Rect2(2817, 0, 313, 375)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3vja"]
+atlas = ExtResource("4_w2xga")
+region = Rect2(3130, 0, 313, 375)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vaj8p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vaj8p")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4slyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ia6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xx3wb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0wq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hslf5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2tw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fj6an")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmcj1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aw8xw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0eft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3vja")
+}],
+"loop": true,
+"name": &"Walking",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vy0uf"]
 
@@ -19,6 +118,7 @@ shape = SubResource("CircleShape2D_lnshm")
 [node name="Graphics" type="Node2D" parent="."]
 
 [node name="Zombie" type="Sprite2D" parent="Graphics"]
+visible = false
 position = Vector2(-10, -30)
 rotation = -1.5708
 texture = ExtResource("2_w2xga")
@@ -28,6 +128,12 @@ visible = false
 z_index = -1
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_4slyf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Graphics"]
+scale = Vector2(0.55, 0.55)
+sprite_frames = SubResource("SpriteFrames_vaj8p")
+animation = &"Idle"
+speed_scale = 3.0
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, -100)

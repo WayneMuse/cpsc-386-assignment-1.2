@@ -4,8 +4,12 @@ extends CharacterBody2D
 @onready var detection_area: Area2D = $Area2D
 @export var move_speed: float = 150
 
+#pathfinding
 @export var use_pathfinding: bool = false
 var nav_agent: NavigationAgent2D
+
+#animations
+@onready var anim_sprite = $Graphics/AnimatedSprite2D
 
 var player: CharacterBody2D
 var dead := false
@@ -19,6 +23,8 @@ func _ready() -> void:
 	if player:
 		died.connect(player.add_kill)
 	
+	anim_sprite.play("Idle")
+		
 	# Setup pathfinding if this is a Smart Zombie
 	if use_pathfinding:
 		nav_agent = NavigationAgent2D.new()
@@ -108,6 +114,8 @@ func _physics_process(delta: float) -> void:
 		
 		move_and_slide()
 		_check_stuck(delta)
+		
+	_update_animation()
 
 	if ray_cast_2d.is_colliding() and ray_cast_2d.get_collider() == player:
 		player.kill()
@@ -147,6 +155,7 @@ func kill() -> void:
 	$DeathSound.play()
 	$Graphics/Dead.show()
 	$Graphics/Zombie.hide()
+	$Graphics/AnimatedSprite2D.hide()
 	
 	# Disable physics collision so they can walk ON the corpse
 	$CollisionShape2D.set_deferred("disabled", true)
@@ -193,3 +202,12 @@ func drop_ammo(play_sound: bool):
 	# Optional: Add a little random scatter so they don't stack perfectly
 	var scatter = Vector2(randf_range(-20, 20), randf_range(-20, 20))
 	ammo.global_position += scatter
+	
+func _update_animation() -> void:
+	# If moving, play Walking, otherwise Idle
+	if velocity.length() > 0.0001:
+		#if anim_sprite.animation != "Walking":
+		anim_sprite.play("Walking")
+	else:
+			#if anim_sprite.animation != "Idle":
+		anim_sprite.play("Idle")

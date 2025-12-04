@@ -1,158 +1,158 @@
-[gd_scene load_steps=47 format=3 uid="uid://cq78am75tulsy"]
+[gd_scene load_steps=47 format=3 uid="uid://tcs4o0wfb2ft"]
 
-[ext_resource type="Script" uid="uid://bxbyllr0iwxui" path="res://Scripts/player.gd" id="1_x3wgy"]
-[ext_resource type="Texture2D" uid="uid://bvr0p2oig2v3j" path="res://Assets/Shooter3.noback.png" id="2_3smsa"]
-[ext_resource type="Texture2D" uid="uid://cx4qm0tqg8pok" path="res://Assets/deadbody.noback.png" id="3_8erm5"]
-[ext_resource type="AudioStream" uid="uid://cj2nbwksy2x3c" path="res://Assets/aDeath.wav" id="4_f1ek2"]
-[ext_resource type="Texture2D" uid="uid://bkw4tjlai4e64" path="res://Assets/Spritesheet/soldier-walking.png" id="4_tx1dd"]
-[ext_resource type="Texture2D" uid="uid://v16nnocp8rg1" path="res://Assets/Spritesheet/soldier-shooting.png" id="5_gymyn"]
-[ext_resource type="AudioStream" uid="uid://xs6uhmmbfl43" path="res://Assets/aBullet.wav" id="5_tx1dd"]
-[ext_resource type="AudioStream" uid="uid://b1htxnubjiu4u" path="res://Assets/empty.mp3" id="6_3smsa"]
-[ext_resource type="Texture2D" uid="uid://bbgvsi2g7qfex" path="res://Assets/Muzzle Flash.png" id="6_gymyn"]
+[ext_resource type="Script" uid="uid://bxbyllr0iwxui" path="res://Scripts/player.gd" id="1_vxu1t"]
+[ext_resource type="Texture2D" uid="uid://bkw4tjlai4e64" path="res://Assets/Spritesheet/soldier-walking.png" id="2_opmnx"]
+[ext_resource type="Texture2D" uid="uid://bvr0p2oig2v3j" path="res://Assets/Shooter3.noback.png" id="2_r2c58"]
+[ext_resource type="Texture2D" uid="uid://v16nnocp8rg1" path="res://Assets/Spritesheet/soldier-shooting.png" id="3_5jtbi"]
+[ext_resource type="Texture2D" uid="uid://cx4qm0tqg8pok" path="res://Assets/deadbody.noback.png" id="3_opmnx"]
+[ext_resource type="AudioStream" uid="uid://cj2nbwksy2x3c" path="res://Assets/aDeath.wav" id="4_5jtbi"]
+[ext_resource type="AudioStream" uid="uid://xs6uhmmbfl43" path="res://Assets/aBullet.wav" id="5_ev8b4"]
+[ext_resource type="AudioStream" uid="uid://b1htxnubjiu4u" path="res://Assets/empty.mp3" id="6_0xmu3"]
+[ext_resource type="Texture2D" uid="uid://bbgvsi2g7qfex" path="res://Assets/Muzzle Flash.png" id="7_4cki3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5dl1s"]
-atlas = ExtResource("4_tx1dd")
+atlas = ExtResource("2_opmnx")
 region = Rect2(0, 0, 311, 398)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_28kd6"]
-atlas = ExtResource("5_gymyn")
+atlas = ExtResource("3_5jtbi")
 region = Rect2(0, 0, 313, 375)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qgl72"]
-atlas = ExtResource("5_gymyn")
+atlas = ExtResource("3_5jtbi")
 region = Rect2(313, 0, 313, 375)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6l3hs"]
-atlas = ExtResource("5_gymyn")
+atlas = ExtResource("3_5jtbi")
 region = Rect2(626, 0, 313, 375)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ax3go"]
-atlas = ExtResource("5_gymyn")
+atlas = ExtResource("3_5jtbi")
 region = Rect2(939, 0, 313, 375)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xn6um"]
-atlas = ExtResource("5_gymyn")
+atlas = ExtResource("3_5jtbi")
 region = Rect2(1252, 0, 313, 375)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hsjgr"]
-atlas = ExtResource("5_gymyn")
+atlas = ExtResource("3_5jtbi")
 region = Rect2(1565, 0, 313, 375)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jcwtv"]
-atlas = ExtResource("5_gymyn")
+atlas = ExtResource("3_5jtbi")
 region = Rect2(1878, 0, 313, 375)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tegd3"]
-atlas = ExtResource("5_gymyn")
+atlas = ExtResource("3_5jtbi")
 region = Rect2(2191, 0, 313, 375)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_plwho"]
-atlas = ExtResource("5_gymyn")
+atlas = ExtResource("3_5jtbi")
 region = Rect2(2504, 0, 313, 375)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_58e1e"]
-atlas = ExtResource("5_gymyn")
+atlas = ExtResource("3_5jtbi")
 region = Rect2(2817, 0, 313, 375)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fpyx1"]
-atlas = ExtResource("5_gymyn")
+atlas = ExtResource("3_5jtbi")
 region = Rect2(3130, 0, 313, 375)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pehy2"]
-atlas = ExtResource("5_gymyn")
+atlas = ExtResource("3_5jtbi")
 region = Rect2(3443, 0, 313, 375)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m01t0"]
-atlas = ExtResource("5_gymyn")
+atlas = ExtResource("3_5jtbi")
 region = Rect2(3756, 0, 313, 375)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c35p7"]
-atlas = ExtResource("5_gymyn")
+atlas = ExtResource("3_5jtbi")
 region = Rect2(4069, 0, 313, 375)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gwvl4"]
-atlas = ExtResource("5_gymyn")
+atlas = ExtResource("3_5jtbi")
 region = Rect2(4382, 0, 313, 375)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ni24g"]
-atlas = ExtResource("5_gymyn")
+atlas = ExtResource("3_5jtbi")
 region = Rect2(4695, 0, 313, 375)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i5v52"]
-atlas = ExtResource("5_gymyn")
+atlas = ExtResource("3_5jtbi")
 region = Rect2(5008, 0, 313, 375)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5jtbi"]
-atlas = ExtResource("4_tx1dd")
+atlas = ExtResource("2_opmnx")
 region = Rect2(0, 0, 311, 398)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ev8b4"]
-atlas = ExtResource("4_tx1dd")
+atlas = ExtResource("2_opmnx")
 region = Rect2(311, 0, 311, 398)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0xmu3"]
-atlas = ExtResource("4_tx1dd")
+atlas = ExtResource("2_opmnx")
 region = Rect2(622, 0, 311, 398)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4cki3"]
-atlas = ExtResource("4_tx1dd")
+atlas = ExtResource("2_opmnx")
 region = Rect2(933, 0, 311, 398)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3w1xw"]
-atlas = ExtResource("4_tx1dd")
+atlas = ExtResource("2_opmnx")
 region = Rect2(1244, 0, 311, 398)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p73p4"]
-atlas = ExtResource("4_tx1dd")
+atlas = ExtResource("2_opmnx")
 region = Rect2(1555, 0, 311, 398)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hxslc"]
-atlas = ExtResource("4_tx1dd")
+atlas = ExtResource("2_opmnx")
 region = Rect2(1866, 0, 311, 398)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pbgcm"]
-atlas = ExtResource("4_tx1dd")
+atlas = ExtResource("2_opmnx")
 region = Rect2(2177, 0, 311, 398)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d1qxj"]
-atlas = ExtResource("4_tx1dd")
+atlas = ExtResource("2_opmnx")
 region = Rect2(2488, 0, 311, 398)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nxigv"]
-atlas = ExtResource("4_tx1dd")
+atlas = ExtResource("2_opmnx")
 region = Rect2(2799, 0, 311, 398)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6kyqe"]
-atlas = ExtResource("4_tx1dd")
+atlas = ExtResource("2_opmnx")
 region = Rect2(3110, 0, 311, 398)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5b2up"]
-atlas = ExtResource("4_tx1dd")
+atlas = ExtResource("2_opmnx")
 region = Rect2(3421, 0, 311, 398)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eu32p"]
-atlas = ExtResource("4_tx1dd")
+atlas = ExtResource("2_opmnx")
 region = Rect2(3732, 0, 311, 398)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mo43u"]
-atlas = ExtResource("4_tx1dd")
+atlas = ExtResource("2_opmnx")
 region = Rect2(4043, 0, 311, 398)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qfrlg"]
-atlas = ExtResource("4_tx1dd")
+atlas = ExtResource("2_opmnx")
 region = Rect2(4354, 0, 311, 398)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gl0k7"]
-atlas = ExtResource("4_tx1dd")
+atlas = ExtResource("2_opmnx")
 region = Rect2(4665, 0, 311, 398)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xwhbw"]
-atlas = ExtResource("4_tx1dd")
+atlas = ExtResource("2_opmnx")
 region = Rect2(4976, 0, 311, 398)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_pu2lt"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_5dl1s"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -278,7 +278,7 @@ animations = [{
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 collision_mask = 3
-script = ExtResource("1_x3wgy")
+script = ExtResource("1_vxu1t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(4, 4)
@@ -286,22 +286,23 @@ shape = SubResource("CircleShape2D_onrkg")
 
 [node name="Graphics" type="Node2D" parent="."]
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Graphics"]
+scale = Vector2(0.33, 0.33)
+sprite_frames = SubResource("SpriteFrames_5dl1s")
+animation = &"Walking"
+frame_progress = 0.670548
+speed_scale = 1.5
+
 [node name="Shooter" type="Sprite2D" parent="Graphics"]
 visible = false
 rotation = 3.14159
-texture = ExtResource("2_3smsa")
+texture = ExtResource("2_r2c58")
 
 [node name="Dead" type="Sprite2D" parent="Graphics"]
 visible = false
 z_index = -1
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_8erm5")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Graphics"]
-scale = Vector2(0.33, 0.33)
-sprite_frames = SubResource("SpriteFrames_pu2lt")
-animation = &"Walking"
-speed_scale = 1.5
+texture = ExtResource("3_opmnx")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(15, -72)
@@ -309,22 +310,22 @@ target_position = Vector2(0, -1500)
 collision_mask = 3
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_f1ek2")
+stream = ExtResource("4_5jtbi")
 bus = &"SFX"
 
 [node name="ShootSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_tx1dd")
+stream = ExtResource("5_ev8b4")
 bus = &"SFX"
 
 [node name="EmptySound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_3smsa")
+stream = ExtResource("6_0xmu3")
 bus = &"SFX"
 
 [node name="Muzzleflash" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(14, -93)
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("6_gymyn")
+texture = ExtResource("7_4cki3")
 
 [node name="Timer" type="Timer" parent="Muzzleflash"]
 wait_time = 0.05
