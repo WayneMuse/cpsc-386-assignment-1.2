@@ -15,7 +15,8 @@ var actions_to_remap = {
 	"move_right": "Move Right",
 	"sprint": "Sprint",
 	"shoot": "Shoot/Attack",
-	"pause": "Pause Game"
+	"pause": "Pause Game",
+	"map": "Map",
 }
 
 var is_remapping = false

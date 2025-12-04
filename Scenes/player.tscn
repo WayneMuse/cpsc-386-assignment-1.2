@@ -33,7 +33,7 @@ texture = ExtResource("3_8erm5")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(15, -72)
-target_position = Vector2(0, -1000)
+target_position = Vector2(0, -1500)
 collision_mask = 3
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
@@ -92,7 +92,7 @@ offset_bottom = 66.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Death Screen/Panel"]
+[node name="LoseLabel" type="Label" parent="CanvasLayer/Death Screen/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -105,7 +105,23 @@ offset_right = 38.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 32
 text = "Y O U   L O S E"
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/Death Screen/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -26.0
+offset_top = -55.0
+offset_right = 26.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Score: "
 
 [node name="Restart" type="Button" parent="CanvasLayer/Death Screen/Panel"]
 layout_mode = 1
@@ -116,6 +132,20 @@ offset_top = -31.0
 offset_right = 96.0
 grow_vertical = 0
 text = "Main Menu"
+
+[node name="Scores" type="Button" parent="CanvasLayer/Death Screen/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -8.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Save Score"
 
 [node name="Exit" type="Button" parent="CanvasLayer/Death Screen/Panel"]
 layout_mode = 1

@@ -1,7 +1,23 @@
 [gd_scene load_steps=3 format=3 uid="uid://ciw7lgueva0lp"]
 
 [ext_resource type="Script" uid="uid://5uhh3kjwgr26" path="res://Scripts/pause_menu.gd" id="1_woiik"]
-[ext_resource type="StyleBox" uid="uid://hjxxatualruc" path="res://menu_box_panel_bg.tres" id="2_h0ngc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h0ngc"]
+bg_color = Color(0.129412, 0.129412, 0.129412, 0.564706)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+anti_aliasing_size = 2.0
 
 [node name="EscMenu" type="CanvasLayer"]
 process_mode = 3
@@ -9,58 +25,57 @@ visible = false
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_woiik")
 
-[node name="PanelContainer" type="PanelContainer" parent="Control"]
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 650.0
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -34.0
-offset_top = -45.5
-offset_right = 34.0
-offset_bottom = 45.5
+offset_left = -66.0
+offset_top = -70.0
+offset_right = 66.0
+offset_bottom = 70.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = ExtResource("2_h0ngc")
+theme_override_styles/panel = SubResource("StyleBoxFlat_h0ngc")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="MainMenuButton" type="Button" parent="Control/PanelContainer/VBoxContainer"]
+[node name="MainMenuButton" type="Button" parent="Control/Panel/PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "Main Menu"
 
-[node name="SaveGameButton" type="Button" parent="Control/PanelContainer/VBoxContainer"]
+[node name="SaveGameButton" type="Button" parent="Control/Panel/PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "Save Game"
 
-[node name="SaveNameInput" type="LineEdit" parent="Control/PanelContainer/VBoxContainer"]
+[node name="SaveNameInput" type="LineEdit" parent="Control/Panel/PanelContainer/VBoxContainer"]
 layout_mode = 2
 placeholder_text = "Input Save Name"
 
-[node name="LoadGameButton" type="Button" parent="Control/PanelContainer/VBoxContainer"]
+[node name="LoadGameButton" type="Button" parent="Control/Panel/PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "Load Game"
 
-[node name="NextWaveButton" type="Button" parent="Control/PanelContainer/VBoxContainer"]
+[node name="NextWaveButton" type="Button" parent="Control/Panel/PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "Next Wave"
 
-[node name="QuitGameButton" type="Button" parent="Control/PanelContainer/VBoxContainer"]
+[node name="QuitGameButton" type="Button" parent="Control/Panel/PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "Exit Game"

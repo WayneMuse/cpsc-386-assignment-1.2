@@ -38,10 +38,8 @@ stream = ExtResource("4_5ia6i")
 bus = &"SFX"
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
-scale = Vector2(75, 75)
+scale = Vector2(85, 85)
 shape = SubResource("CircleShape2D_vy0uf")

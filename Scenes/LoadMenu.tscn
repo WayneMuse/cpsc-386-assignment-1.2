@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://rqh0o07sm1pq"]
 
-[ext_resource type="Script" uid="uid://c1wrv2ql8l7k7" path="res://Scenes/load_menu.gd" id="1_1phsf"]
+[ext_resource type="Script" uid="uid://c1wrv2ql8l7k7" path="res://Scripts/load_menu.gd" id="1_vpo06"]
 [ext_resource type="Texture2D" uid="uid://b3tevue8u0uhb" path="res://Assets/The Dead.jpg" id="2_vpo06"]
 [ext_resource type="AudioStream" uid="uid://d1weijp5gtx28" path="res://Assets/Reborn - Main Menu.mp3" id="3_0kb28"]
 [ext_resource type="StyleBox" uid="uid://hjxxatualruc" path="res://menu_box_panel_bg.tres" id="3_vpo06"]
@@ -12,21 +12,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_1phsf")
+script = ExtResource("1_vpo06")
+metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="."]
+z_index = 1
 layout_mode = 0
 offset_right = 1150.0
 offset_bottom = 650.0
 
 [node name="Background" type="Sprite2D" parent="."]
-z_index = -1
 position = Vector2(576, 325.25)
 scale = Vector2(1.87909, 1.81373)
 texture = ExtResource("2_vpo06")
 metadata/_edit_lock_ = true
 
 [node name="PanelBackground" type="PanelContainer" parent="."]
+z_index = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

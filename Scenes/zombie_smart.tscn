@@ -41,5 +41,5 @@ bus = &"SFX"
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-scale = Vector2(75, 75)
+scale = Vector2(85, 85)
 shape = SubResource("CircleShape2D_vy0uf")

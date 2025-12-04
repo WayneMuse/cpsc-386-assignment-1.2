@@ -9,6 +9,7 @@ func _ready():
 	back_button.pressed.connect(_on_back_pressed)
 	no_saves_label.hide()
 	populate_save_list()
+	pass
 
 func populate_save_list():
 	var save_files = []
@@ -95,26 +96,17 @@ func _clear_save_list():
 	# Remove all existing buttons before repopulating
 	for child in save_list_container.get_children():
 		child.queue_free()
+
 func _on_save_file_pressed(save_name: String):
 	print("Loading save: ", save_name)
 	# 1. Call the new GameManager function to load this specific file
 	GameManager.load_game_by_name(save_name)
-	
-	# 2. Change scene based on the loaded data
-	match GameManager.lastLevel:
-		"Main":
-			get_tree().change_scene_to_file("res://Scenes/Levels/main_menu.tscn")
-		"Area1":
-			get_tree().change_scene_to_file("res://Scenes/Levels/DemoLevel.tscn")
-		"Area2":
-			get_tree().change_scene_to_file("res://Scenes/Levels/level2.tscn")
-		# Add any other levels here
-		"Controls":
-			get_tree().change_scene_to_file("res://Scenes/Levels/controls.tscn")
 
 
 func _on_back_pressed():
-	# Always go back to the main menu from here
-	get_tree().change_scene_to_file("res://Scenes/Start.tscn")
-	
-#	Implement return to last level opened (whatever that may be)
+	if get_parent() == get_tree().root:
+		# Fallback: If somehow run as a standalone scene, go to start
+		get_tree().change_scene_to_file("res://Scenes/Start.tscn")
+	else:
+		# Standard Popup behavior: Just delete ourselves
+		queue_free()

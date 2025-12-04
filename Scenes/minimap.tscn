@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs61lcve7sqou"]
+
+[ext_resource type="Script" uid="uid://dt4s0e4n0fd84" path="res://Scripts/minimap.gd" id="1_nfbsi"]
+
+[node name="Minimap" type="CanvasLayer"]
+layer = 100
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = 300.0
+grow_horizontal = 0
+color = Color(0.196078, 0.117647, 0.117647, 0.176471)
+script = ExtResource("1_nfbsi")
